@@ -1,0 +1,136 @@
+### AN-24 Aircraft Checklist
+### for Checklister plugin
+### modified for conformance with 64-bit Xchecklist plugin
+### MAXIM TUSHKANOV
+# Special for https://vk.com/laminar.research.xplane
+
+
+sw_checklist:BEFORE START
+sw_rcolsize:20
+sw_item:ROUTE|PFPX
+sw_item:LOAD|DO IT!
+sw_item:KLN90B|SET
+
+sw_checklist:START 1
+sw_rcolsize:20
+sw_item:PITANIE|AERODROM
+sw_item:PO-750, PO-1000|ON
+sw_item:FIRE SYSTEM|ON
+sw_item:ANO|ON
+sw_itemvoid:<IF APU RU-19 START>
+sw_item:FUEL PUMP RIGHT|ON
+sw_item:THROTTLE RU-19|IDLE
+sw_item:APU FIRE VALVE|OPEN,GREEN
+sw_item:MAIN SWITCH RU-19|ON
+sw_item:MODE RU-19|START
+sw_item:START BUTTON|ON
+sw_item:GEN RU-19|ON
+sw_itemvoid:<IF GPU START, CHECK:>
+sw_item:THROTTLE|IDLE
+sw_item:FLUGER|OFF
+sw_item:STOP KRAN|CLOSED
+
+sw_checklist:START 2
+sw_rcolsize:20
+sw_item:ALL FUEL PUMP|ON
+sw_item:FIRE VALVE|ON
+sw_item:TOPLIVOMER|ON
+sw_item:FUEL|CHECK
+sw_item:IV-41(VIBRATION)|ON
+sw_item:MODE|START
+sw_item:AIR/GROUND|GROUND
+sw_item:ENGINE SELECTOR|LEFT
+sw_item:START BUTTON|ON
+sw_item:LEFT GEN STG AND GO|ON
+sw_item:ENGINE SELECTOR|RIGHT
+sw_item:START BUTTON|ON
+sw_item:RIGHT GEN STG AND GO|ON
+sw_itemvoid:<IF APU RU-19 START>
+sw_item:APU FIRE VALVE|CLOSED
+sw_item:MAIN SWITCH RU-19|OFF
+
+sw_checklist:AFTER START
+sw_rcolsize:20
+sw_item:AVTOFLUGER, -10% RPM|CHECK
+sw_item:PITANIE|NA BORT
+sw_item:VSE POTREBITELI|ON
+sw_item:AVIAGORIZONT (AGB-3)|MANUAL ADJUST
+sw_item:GYROKOMPAS ON, ADJUST|SET
+sw_item:AUTO BRAKES|ON
+sw_item:BLEED|ON
+sw_item:ANTI ICE|ON
+sw_item:QNH|SET
+sw_item:VOR\ILS\DME\ADF|SET
+
+sw_checklist:TAXI
+sw_rcolsize:20
+sw_item:SQUAWKBOX|SET, "A" MODE
+sw_item:GPU GROUND|OFF
+sw_item:FORWARD GEAR|TAXI
+sw_itemvoid:(TAXI SPEED <30 KM/H)
+sw_itemvoid:<BEFORE TAKEOFF>
+sw_item:SQUAWKBOX|"C" MODE
+sw_item:LANDING LIGHT|ON
+sw_item:GYROKOMPAS|CHECK
+sw_item:FLAPS|15
+sw_item:TRIM|SET
+sw_item:FORWARD GEAR|TAKEOFF, LANDING
+sw_item:UPOR VINTOV|PROMEJUTOCHNIY
+
+sw_checklist: TAKEOFF
+sw_rcolsize:20
+sw_item:FUEL|CHECK!!!
+sw_item:UPRT|80-100%
+sw_item:ALT >15 M|GEAR UP
+sw_item:AFTER T/O|UPRT 65%
+sw_item:VERT SPEED|5 M/S
+sw_item:250-300 KM/H|FLAPS UP
+sw_item:A/P|ON
+sw_item:300-350 KM/H|CLIMB
+sw_itemvoid:<AT T/A>
+sw_item:ALTIMETER STD|SET
+sw_itemvoid:<AT 10000F>
+sw_item:LANDING LIGHT|OFF
+sw_item:350-400 KM/H|CRUISE
+sw_item:CRUISE UPRT|52%
+
+sw_checklist: DESCEND AND LANDING
+sw_rcolsize:20
+sw_item:UPRT 20|SET
+sw_item:VERT SPEED|5 M/S
+sw_item:SPEED|<450 KM/H
+sw_itemvoid:<AT 10000F>
+sw_item:LANDING LIGHT|ON
+sw_itemvoid:<AT T/L>
+sw_item:QNH|SET
+sw_item:G/S SPEED|3 M/S
+sw_itemvoid:<LANDING>
+sw_item:LANDING SPEED|190 KM/H
+sw_itemvoid:(UPOR VINTOV OFF)
+sw_itemvoid:<SPEED < 100 KM/H>
+sw_item:BRAKES|ON
+sw_item:FORWARD GEAR|TAXI
+
+sw_checklist: PEREZAPUSK
+sw_rcolsize:20
+sw_item:BLEED|OFF
+sw_item:ANTI ICE|OFF
+sw_item:UPRT 0|CHECK
+sw_item:UPOR VINTA|NA UPORE
+sw_item:MODE|START
+sw_item:ENGINE SELECTOR|LEFT OR RIGHT
+sw_item:STOP KRAN|OPEN
+sw_item:AIR/GROUND|AIR
+sw_item:START BUTTON|ON
+sw_item:FLUGER|OFF
+
+sw_checklist:Shutdown
+sw_rcolsize:20
+sw_item:GEN|OFF
+sw_item:STOP KRAN|ON
+sw_item:POTREBITELI|OFF
+sw_item:FUEL PUMPS|OFF
+sw_item:FIRE VALVE|OFF
+sw_item:PITANIE|OFF
+sw_itemvoid: 
+sw_itemvoid:END OF CHECKLISTS

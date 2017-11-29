@@ -1,0 +1,15 @@
+AIRAC cycle    : 1710
+Version        : 1
+Valid (from/to): 14/SEP/2017 - 11/OCT/2017
+
+Forum          : http://forum.navigraph.com
+
+Data provided by Navigraph - www.navigraph.com - Source data copyright (c) 2017 Jeppesen
+This data may be used for ground based recreational computer game
+simulation software only, and may not be recompiled, interpreted,
+or distributed for any purpose without the written consent of Navigraph.
+The contents of this database is dated and must not be used for real
+world navigation as it is unlawful and unsafe to do so.
+
+Parser-Version : DFD v1.0 17.0711 (c) Richard Stefan
+Files parsed on: 12/07/2017
