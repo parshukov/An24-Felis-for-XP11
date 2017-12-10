@@ -62,6 +62,16 @@ defineProperty("overhead_light_pilot_right_ownDR", globalPropertyf("parshukovedi
 defineProperty("overhead_light_pilot_right_mode", globalPropertyf("parshukovedition/overhead_lamp_pilot_right_mode"))
 defineProperty("overhead_light_pilot_left_ownDR", globalPropertyf("parshukovedition/overhead_lamp_pilot_left_bright"))
 defineProperty("overhead_light_pilot_left_mode", globalPropertyf("parshukovedition/overhead_lamp_pilot_left_mode"))
+
+defineProperty("overhead_lamp_left_rot_updown", globalPropertyf("parshukovedition/overhead_lamp_left_rot_updown"))
+defineProperty("overhead_lamp_left_rot_around", globalPropertyf("parshukovedition/overhead_lamp_left_rot_around"))
+defineProperty("overhead_lamp_right_rot_updown", globalPropertyf("parshukovedition/overhead_lamp_right_rot_updown"))
+defineProperty("overhead_lamp_right_rot_around", globalPropertyf("parshukovedition/overhead_lamp_right_rot_around"))
+defineProperty("overhead_lamp_pilot_right_rot_updown", globalPropertyf("parshukovedition/overhead_lamp_pilot_right_rot_updown"))
+defineProperty("overhead_lamp_pilot_right_rot_around", globalPropertyf("parshukovedition/overhead_lamp_pilot_right_rot_around"))
+defineProperty("overhead_lamp_pilot_left_rot_around", globalPropertyf("parshukovedition/overhead_lamp_pilot_left_rot_around"))
+defineProperty("overhead_lamp_pilot_left_rot_updown", globalPropertyf("parshukovedition/overhead_lamp_pilot_left_rot_updown"))
+
 defineProperty("main_cabin_light", globalPropertyi("parshukovedition/switch/main_cabin_light"))
 defineProperty("main_cabin_light_modeL", globalPropertyi("parshukovedition/switch/main_cabin_light_modeL"))
 defineProperty("main_cabin_light_modeR", globalPropertyi("parshukovedition/switch/main_cabin_light_modeR"))
@@ -382,9 +392,87 @@ local time_isalert = 0
 local last_lamp_change = get(flight_time)
 --local isalerton =0
 --playSample(switch_sound, 0)
+lightsprefs_sett = {}
+local line
+local notLoaded = true
+function prefslight_read()
+	local filename
+	
+
+	filename = panelDir .. "/lamps.ini"
+	local file = io.open(filename, "r")
+	if file then
+		for i=1,8,1 do
+			line=file:read()
+			if line == nil then
+				break
+			end
+			lightsprefs_sett[i] = line
+			lightsprefs_sett[i+8] = line
+		end
+		file:close()
+	else
+		print ("no .ini file for lights_prefs- using default values")
+	end
+	set(overhead_lamp_left_rot_updown,lightsprefs_sett[1])
+	set(overhead_lamp_left_rot_around,lightsprefs_sett[2])
+	set(overhead_lamp_right_rot_updown,lightsprefs_sett[3])
+	set(overhead_lamp_right_rot_around,lightsprefs_sett[4])
+	set(overhead_lamp_pilot_right_rot_updown,lightsprefs_sett[5])
+	set(overhead_lamp_pilot_right_rot_around,lightsprefs_sett[6])
+	set(overhead_lamp_pilot_left_rot_around,lightsprefs_sett[7])
+	set(overhead_lamp_pilot_left_rot_updown,lightsprefs_sett[8])
+	return true
+end
+function savestatelamp()
+
+	lightsprefs_sett[1]=get(overhead_lamp_left_rot_updown)
+	lightsprefs_sett[2]=get(overhead_lamp_left_rot_around)
+	lightsprefs_sett[3]=get(overhead_lamp_right_rot_updown)
+	lightsprefs_sett[4]=get(overhead_lamp_right_rot_around)
+	lightsprefs_sett[5]=get(overhead_lamp_pilot_right_rot_updown)
+	lightsprefs_sett[6]=get(overhead_lamp_pilot_right_rot_around)
+	lightsprefs_sett[7]=get(overhead_lamp_pilot_left_rot_around)
+	lightsprefs_sett[8]=get(overhead_lamp_pilot_left_rot_updown)
+	
+	local filenew = io.open(panelDir .. "/lamps.ini", "w")
+	for ind=1,8,1 do
+		filenew:write(lightsprefs_sett[ind], "\n")
+	end
+	filenew:close()
 
 
+end
 function update()
+	if notLoaded then 
+		prefslight_read()
+		notLoaded = false
+	end
+if get(overhead_lamp_left_rot_updown)~=lightsprefs_sett[1] then
+	savestatelamp()
+	lightsprefs_sett[1]=get(overhead_lamp_left_rot_updown)
+elseif get(overhead_lamp_left_rot_around)~=lightsprefs_sett[2] then
+	savestatelamp()
+	lightsprefs_sett[2]=get(overhead_lamp_left_rot_around)
+elseif get(overhead_lamp_right_rot_updown)~=lightsprefs_sett[3] then
+	savestatelamp()
+	lightsprefs_sett[3]=get(overhead_lamp_right_rot_updown)
+elseif get(overhead_lamp_right_rot_around)~=lightsprefs_sett[4] then
+	savestatelamp()
+	lightsprefs_sett[4]=get(overhead_lamp_right_rot_around)
+elseif get(overhead_lamp_pilot_right_rot_updown)~=lightsprefs_sett[5] then
+	savestatelamp()
+	lightsprefs_sett[5]=get(overhead_lamp_pilot_right_rot_updown)
+elseif get(overhead_lamp_pilot_right_rot_around)~=lightsprefs_sett[6] then
+	savestatelamp()
+	lightsprefs_sett[6]=get(overhead_lamp_pilot_right_rot_around)
+elseif get(overhead_lamp_pilot_left_rot_around)~=lightsprefs_sett[7] then
+	savestatelamp()
+	lightsprefs_sett[7]=get(overhead_lamp_pilot_left_rot_around)
+elseif get(overhead_lamp_pilot_left_rot_updown)~=lightsprefs_sett[8] then
+	savestatelamp()
+	lightsprefs_sett[8]=get(overhead_lamp_pilot_left_rot_updown)
+end
 set(light4CCFD,get(light4CFD)*0.4)
 
 set(light4LFDGaugesDownRight,get(light4LFDGaugesDownLeft))
@@ -760,6 +848,7 @@ end
 
 
 end
+
 
 
 components = {

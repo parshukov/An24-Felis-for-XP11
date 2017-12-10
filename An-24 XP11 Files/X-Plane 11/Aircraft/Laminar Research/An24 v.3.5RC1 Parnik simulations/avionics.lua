@@ -1,4 +1,4 @@
-print("it's An24 version 3.4RC1 Parnik Simulations")
+print("it's An24 version 3.5RC1 Parnik Simulations")
 size = { 2048, 2048 }
 
 -- 3D panel issue workaround
@@ -10,7 +10,8 @@ createProp("sim/custom/xap/sim_version", "int", 9);
 defineProperty("sim_version", globalPropertyi("sim/custom/xap/sim_version"))  -- saved sim version
 
 defineProperty("sim_v", globalPropertys("sim/version/sim_build_string"))  -- sim version
-
+lightsprefs_sett = {}
+local line
 local text_version = get(sim_v)
 
 print("sim build date:", text_version)
@@ -104,6 +105,11 @@ createProp("parshukovedition/overhead_lamp_pilot_left_mode", "int", 0);  --0 off
 createProp("parshukovedition/overhead_lamp_pilot_left_bright", "float", 1);
 createProp("parshukovedition/overhead_lamp_pilot_left_rot_updown", "float", 45);
 createProp("parshukovedition/overhead_lamp_pilot_left_rot_around", "float", 0);
+
+
+
+
+
 ---------
 createProp("parshukovedition/soundCap", "int", 0);
 createProp("parshukovedition/switch/main_cabin_light", "int", 0);
@@ -1731,4 +1737,12 @@ map {
 
 }
 
+local filenew
+function prefslight_save()
+	
 
+end
+
+function onAvionicsDone()
+	
+end
