@@ -4,6 +4,21 @@ size = { 200, 200 }
 defineProperty("utc_time", globalPropertyf("sim/time/zulu_time_sec"))
 defineProperty("sim_run_time", globalPropertyf("sim/time/total_running_time_sec"))
 defineProperty("world_green", globalPropertyf("sim/graphics/misc/cockpit_light_level_g"))  -- green component of natural light in cockpit
+defineProperty("sec_mode_clock", globalPropertyf("parshukovedition/clocks/sec_mode"))  -- sec_mode
+defineProperty("flight_mode_clock", globalPropertyf("parshukovedition/clocks/flight_mode"))  -- sec_mode
+defineProperty("chrono_sec_angle", globalPropertyf("parshukovedition/clocks/chrono_sec_angle"))  -- sec_mode
+defineProperty("chrono_min_angle", globalPropertyf("parshukovedition/clocks/chrono_min_angle"))  -- sec_mode
+defineProperty("flight_min_angle", globalPropertyf("parshukovedition/clocks/flight_min_angle"))  -- sec_mode
+defineProperty("flight_hour_angle", globalPropertyf("parshukovedition/clocks/flight_hour_angle"))  -- sec_mode
+defineProperty("sec_time", globalPropertyf("parshukovedition/clocks/sec_time"))  -- sec_mode
+defineProperty("flight_time", globalPropertyf("parshukovedition/clocks/flight_time"))  -- sec_mode
+defineProperty("start_sec", globalPropertyf("parshukovedition/clocks/start_sec"))  -- sec_mode
+defineProperty("start_flight", globalPropertyf("parshukovedition/clocks/start_flight"))  -- sec_mode
+
+defineProperty("ssmartismaster", globalPropertyi("scp/api/ismaster"))  -- sec_mode
+
+
+
 
 -- background image
 --defineProperty("background", loadImage("achs1.dds", 0, 0, size[1], size[2]))
@@ -41,22 +56,22 @@ local btn_click = loadSample('Custom Sounds/acs_btn.wav')
 --local tik_tak = loadSample('Custom Sounds/acs_tik_tik.wav')
 
 -- define needed variables
-local sec_mode = 0  -- mode of sec-timer
-local flight_mode = 0  -- mode of chronometer of flight time
-local sec_time = 0  -- time of chronometer of sec
-local flight_time = 0  -- time of flight
-local start_sec = 0  -- time of sec chrono start
-local start_flight = 0  -- time of flight chrono start
+--local sec_mode = 0  -- mode of sec-timer
+--local flight_mode = 0  -- mode of chronometer of flight time
+--local sec_time = 0  -- time of chronometer of sec
+--local flight_time = 0  -- time of flight
+--local start_sec = 0  -- time of sec chrono start
+--local start_flight = 0  -- time of flight chrono start
 
 local night = false
 
 local leftKnobClicked = false
 local rightKnobClicked = false
-local chrono_min_angle = 0
-local chrono_sec_angle = 0
+--local chrono_min_angle = 0
+--local chrono_sec_angle = 0
 
-local flight_hour_angle = 0
-local flight_min_angle = 0
+--local flight_hour_angle = 0
+--local flight_min_angle = 0
 
 local main_hour_angle = 0
 local main_min_angle = 0
@@ -68,12 +83,12 @@ local flag_img = get(flag_1)
 sec_timer_command = findCommand("sim/instruments/timer_start_stop")
 function sec_timer_handler(phase)  -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
 	if 0 == phase then
-		if sec_mode == 0 then
-			sec_mode = 1
-            start_sec = get(sim_run_time)
-        elseif sec_mode == 1 then
-            sec_mode = 2
-        else sec_mode = 0
+		if get(sec_mode_clock) == 0 then
+			set(sec_mode_clock,1)
+            set(start_sec, get(sim_run_time))
+        elseif get(sec_mode_clock) == 1 then
+            set(sec_mode_clock,2)
+        else set(sec_mode_clock, 0)
         end		
     end
 return 0
@@ -84,12 +99,12 @@ registerCommandHandler(sec_timer_command, 0, sec_timer_handler)
 flight_timer_command = findCommand("sim/instruments/timer_reset")
 function flight_timer_handler(phase)  -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
 	if 0 == phase then
-            if flight_mode == 0 then
-               flight_mode = 1
-               start_flight = get(sim_run_time)
-            elseif flight_mode == 1 then
-               flight_mode = 2
-            else flight_mode = 0
+            if get(flight_mode_clock) == 0 then
+               set(flight_mode_clock, 1)
+               set(start_flight, get(sim_run_time))
+            elseif get(flight_mode_clock) == 1 then
+               set(flight_mode_clock,2)
+            else set(flight_mode_clock, 0)
             end	
     end
 return 0
@@ -103,38 +118,81 @@ function update()
 	local main_time = get(utc_time)  -- take actual UTC time
 	
 	-- flag image calc
-	if flight_mode == 1 then flag_img = get(flag_1)
-    elseif flight_mode == 2 then flag_img = get(flag_2)
+	if get(flight_mode_clock) == 1 then flag_img = get(flag_1)
+    elseif get(flight_mode_clock) == 2 then flag_img = get(flag_2)
     else flag_img = get(flag_0)
     end
-	
+	if get(ssmartismaster)==1 then
+		if get(sec_mode_clock) == 0 then 
+			set(sec_time,0)
+			
+		elseif get(sec_mode_clock) == 1 then 
+			set(sec_time, get(sim_run_time) - get(start_sec))
+			
+		else
+			set(chrono_min_angle,get(chrono_min_angle))
+			set(chrono_sec_angle, get(chrono_sec_angle))
+		end
+		if get(flight_mode_clock) == 0 then 
+			set(flight_time, 0)
+			
+		elseif get(flight_mode_clock) == 1 then 
+			set(flight_time, get(sim_run_time) - get(start_flight))
+			
+			
+		else
+			set(flight_hour_angle, get(flight_hour_angle))
+			set(flight_min_angle,get(flight_min_angle))
+		end
+		
+		
+		
+	else
+		if get(sec_mode_clock) == 0 then 
+			set(sec_time,0)
+			set(chrono_min_angle, get(sec_time))
+			set(chrono_sec_angle, get(sec_time))
+		elseif get(sec_mode_clock) == 1 then 
+			set(sec_time, get(sim_run_time) - get(start_sec))
+			set(chrono_min_angle, get(sec_time) * 360 / (60 * 60))
+			set(chrono_sec_angle, get(chrono_min_angle)* 60)
+		else
+			set(chrono_min_angle,get(sec_time) * 360 / (60 * 60))
+			set(chrono_sec_angle, get(chrono_min_angle) * 60)
+		end
+		if get(flight_mode_clock) == 0 then 
+			set(flight_time, 0)
+			set(flight_hour_angle,get(flight_time))
+			set(flight_min_angle,get(flight_time))
+		elseif get(flight_mode_clock) == 1 then 
+			set(flight_time, get(sim_run_time) - get(start_flight))
+			set(flight_hour_angle,get(flight_time) * 360 / (60 * 60 * 12))
+			set(flight_min_angle, get(flight_hour_angle) * 12)
+		else
+			set(flight_hour_angle, flight_time * 360 / (60 * 60 * 12))
+			set(flight_min_angle,get(flight_hour_angle) * 12)
+		end
+		
+	end
 	-- calculate chronometer's angles
-	if sec_mode == 0 then 
-        sec_time = 0
-		chrono_min_angle = sec_time 
-		chrono_sec_angle = sec_time
-    elseif sec_mode == 1 then 
-		sec_time = sim_time - start_sec
-        chrono_min_angle = sec_time * 360 / (60 * 60)
-		chrono_sec_angle = chrono_min_angle * 60
-    else
-        chrono_min_angle = sec_time * 360 / (60 * 60)
-		chrono_sec_angle = chrono_min_angle * 60
-    end
+		
+		
+		-- calculate flight timer
+	--	if get(flight_mode_clock) == 0 then 
+	--		flight_time = 0
+	--		set(flight_hour_angle,flight_time)
+	--		set(flight_min_angle,flight_time)
+	--	elseif get(flight_mode_clock) == 1 then 
+	--		flight_time = sim_time - start_flight
+	---		set(flight_hour_angle,flight_time * 360 / (60 * 60 * 12))
+	--		set(flight_min_angle, get(flight_hour_angle) * 12)
+	--	else
+	--		set(flight_hour_angle, flight_time * 360 / (60 * 60 * 12))
+	--		set(flight_min_angle,get(flight_hour_angle) * 12)
+	--	end
+	--end
 	
-	-- calculate flight timer
-	if flight_mode == 0 then 
-        flight_time = 0
-        flight_hour_angle = flight_time 
-		flight_min_angle = flight_time 
-    elseif flight_mode == 1 then 
-        flight_time = sim_time - start_flight
-        flight_hour_angle = flight_time * 360 / (60 * 60 * 12)
-		flight_min_angle = flight_hour_angle * 12
-    else
-        flight_hour_angle = flight_time * 360 / (60 * 60 * 12)
-		flight_min_angle = flight_hour_angle * 12
-    end
+	
 	
 	-- calculate clock
 	main_sec_angle = main_time * 360 / 60
@@ -168,7 +226,7 @@ components = {
         position = { 50, 3, 100, 100 },
         image = get(chrono_min_nd),
         angle = function()
-			return chrono_min_angle
+			return get(chrono_min_angle)
         end
     }, 
 	
@@ -177,7 +235,7 @@ components = {
         position = { 50, 3, 100, 100 },
         image = get(chrono_min_nd_lit),
         angle = function()
-			return chrono_min_angle
+			return get(chrono_min_angle)
         end,
 		visible = function()
 			return night
@@ -189,7 +247,7 @@ components = {
         position = { 55, 8, 90, 90 },
         image = get(chrono_sec_nd),
         angle = function()
-			return chrono_sec_angle
+			return get(chrono_sec_angle)
         end
     },  
     
@@ -198,7 +256,7 @@ components = {
         position = { 55, 8, 90, 90 },
         image = get(chrono_sec_nd_lit),
         angle = function()
-			return chrono_sec_angle
+			return get(chrono_sec_angle)
         end,
 		visible = function()
 			return night
@@ -220,13 +278,14 @@ components = {
        onMouseClick = function() 
           if not rightKnobClicked then  
             playSample(btn_click, 0)
-			if sec_mode == 0 then
-               sec_mode = 1
-               start_sec = get(sim_run_time)
-            elseif sec_mode == 1 then
-               sec_mode = 2
-            else sec_mode = 0
-            end
+			if get(sec_mode_clock) == 0 then
+				   set(sec_mode_clock,1)
+				   set(start_sec,get(sim_run_time))
+			elseif get(sec_mode_clock) == 1 then
+				set(sec_mode_clock,2)
+			else set(sec_mode_clock,0)
+			end
+			
             rightKnobClicked = true
           end
           return true
@@ -268,7 +327,7 @@ components = {
         position = { 50, 102, 100, 90 },
         image = get(flight_hour_nd),
         angle = function()
-			return flight_hour_angle 
+			return get(flight_hour_angle)
         end,
     },
 	
@@ -277,7 +336,7 @@ components = {
         position = { 50, 102, 100, 90 },
         image = get(flight_hour_nd_lit),
         angle = function()
-			return flight_hour_angle 
+			return get(flight_hour_angle)
         end,
 		visible = function()
 			return night
@@ -289,7 +348,7 @@ components = {
         position = { 50, 97, 100, 100 },
         image = get(flight_min_nd),
         angle = function()
-			return flight_min_angle
+			return get(flight_min_angle)
         end,
     },  
     
@@ -298,7 +357,7 @@ components = {
         position = { 50, 97, 100, 100 },
         image = get(flight_min_nd_lit),
         angle = function()
-			return flight_min_angle
+			return get(flight_min_angle)
         end,
 		visible = function()
 			return night
@@ -319,12 +378,12 @@ components = {
        onMouseClick = function() 
           if not leftKnobClicked then  
             playSample(btn_click, 0)
-			if flight_mode == 0 then
-               flight_mode = 1
-               start_flight = get(sim_run_time)
-            elseif flight_mode == 1 then
-               flight_mode = 2
-            else flight_mode = 0
+			if get(flight_mode_clock) == 0 then
+               set(flight_mode_clock, 1)
+               set(start_flight, get(sim_run_time))
+            elseif get(flight_mode_clock) == 1 then
+               set(flight_mode_clock, 2)
+            else set(flight_mode_clock, 0)
             end
             leftKnobClicked = true
           end  

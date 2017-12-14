@@ -146,6 +146,17 @@ createProp("parshukovedition/autopilot_state_FO_button", "int", 0);
 createProp("parshukovedition/autopilot_state_PF_ApbuttonState", "float", 3);
 createProp("parshukovedition/autopilot_state_FO_ApbuttonState", "float", 3);
 createProp("parshukovedition/An24_gauges/curse_angle", "float", 0);
+createProp("parshukovedition/clocks/sec_mode", "float", 0);
+createProp("parshukovedition/clocks/flight_mode", "float", 0);
+createProp("parshukovedition/clocks/chrono_sec_angle", "float", 0);
+createProp("parshukovedition/clocks/chrono_min_angle", "float", 0);
+createProp("parshukovedition/clocks/flight_min_angle", "float", 0);
+createProp("parshukovedition/clocks/flight_hour_angle", "float", 0);
+createProp("parshukovedition/clocks/sec_time", "float", 0);
+createProp("parshukovedition/clocks/flight_time", "float", 0);
+createProp("parshukovedition/clocks/start_sec", "float", 0);
+createProp("parshukovedition/clocks/start_flight", "float", 0);
+
 
 --FMOD by AutumnSky for cutoff cockpit
 createProp("autumnsky/sound/interier_cutoff", "float", 0); -- 0- all close, 1- distant open 2 - middle open 3 - cockpit open

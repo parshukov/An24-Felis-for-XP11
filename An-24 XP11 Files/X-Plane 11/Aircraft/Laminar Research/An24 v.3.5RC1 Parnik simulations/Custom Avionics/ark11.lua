@@ -358,7 +358,7 @@ if  passed > 0 then
 	local source_angle = get(adf)
 	local signal = 0
 	if power then
-		if source_angle ~= 90 then signal = 1 + (math.random() - 0.49999) * 0.2 
+		if source_angle > 90.01 or source_angle < 89.99 then signal = 1 + (math.random() - 0.49999) * 0.2 
 		else signal = math.random() * 0.2
 		end
 		if mode == 1 and signal > 0.5 then
