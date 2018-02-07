@@ -160,12 +160,16 @@ if passed > 0 and passed < 0.1 then
 	-- landing light logic
 	local lan_sw = get(lan_light_sw)
 	local lan_brt = 0 
+	local taxi_brt = 0 
 	if power27 > 21 and lan_sw == 1 then
 		lan_brt = 1 -- 0.7
+		taxi_brt = 0
 	elseif power27 > 21 and lan_sw == -1 then
-		lan_brt = 1 --0.4
+		lan_brt = 0
+		taxi_brt = 1		--0.4
 	else 
 		lan_brt = 0
+		taxi_brt = 0
 	end
 	set(lan_light_cc, 20 * lan_brt)
 	
@@ -175,7 +179,8 @@ if passed > 0 and passed < 0.1 then
 	-- set angle for light
 	 
 	if lan_sw ~= 0 then angle = -9 - 90 * (-get(sim_lan_light_slider) + 1) + lan_sw * 1.5 end
-	if angle < -30 then lan_brt = 0 end
+	
+	if angle < -30 then lan_brt = 0 taxi_brt = 0 end
 	--print(lan_brt)
 	if lan_brt > 0 then 
 		set(sim_lan_light_sw, 1) 
@@ -184,7 +189,16 @@ if passed > 0 and passed < 0.1 then
 		set(sim_lan_light_sw, 0) 
 		--set(sim_taxi_light_sw, 0)
 	end
-	set(sim_taxi_light_sw, 0)
+	if taxi_brt > 0 then 
+		set(sim_taxi_light_sw, 1) 
+		--set(sim_taxi_light_sw, 1)
+	else 
+		set(sim_taxi_light_sw, 0) 
+		--set(sim_taxi_light_sw, 0)
+	end
+	
+	
+	--set(sim_taxi_light_sw, 0)
 	
 	
 	set(sim_lan_light_angle, angle)
