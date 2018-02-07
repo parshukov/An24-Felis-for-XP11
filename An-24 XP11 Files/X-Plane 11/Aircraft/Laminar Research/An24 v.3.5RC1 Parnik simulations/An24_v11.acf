@@ -44,7 +44,7 @@ P _cgpt/7/_w_now 1.0
 P _cgpt/7/_w_test 0.0
 P _cgpt/7/_z_ref 0.0
 P _cgpt/count 8
-P _door/0/_ang_now 16.007255554
+P _door/0/_ang_now 70.0
 P _door/0/_ext_ang 0.0
 P _door/0/_ret_ang 70.0
 P _door/0/_type 3
@@ -52,7 +52,7 @@ P _door/0/_xyz/0 -14.400005341
 P _door/0/_xyz/1 0.459998399
 P _door/0/_xyz/2 30.799999237
 P _door/0/_xyz/count 3
-P _door/1/_ang_now 16.007255554
+P _door/1/_ang_now 70.0
 P _door/1/_ext_ang 0.0
 P _door/1/_ret_ang 70.0
 P _door/1/_type 3
@@ -70,7 +70,7 @@ P _door/16/_type 0
 P _door/17/_type 0
 P _door/18/_type 0
 P _door/19/_type 0
-P _door/2/_ang_now 16.007255554
+P _door/2/_ang_now 70.0
 P _door/2/_ext_ang 0.0
 P _door/2/_ret_ang 70.0
 P _door/2/_type 3
@@ -78,7 +78,7 @@ P _door/2/_xyz/0 11.699995041
 P _door/2/_xyz/1 0.459998369
 P _door/2/_xyz/2 30.799999237
 P _door/2/_xyz/count 3
-P _door/3/_ang_now 16.007255554
+P _door/3/_ang_now 70.0
 P _door/3/_ext_ang 0.0
 P _door/3/_ret_ang 70.0
 P _door/3/_type 3
@@ -86,7 +86,7 @@ P _door/3/_xyz/0 14.399990082
 P _door/3/_xyz/1 0.459998429
 P _door/3/_xyz/2 30.799999237
 P _door/3/_xyz/count 3
-P _door/4/_ang_now 12.867507935
+P _door/4/_ang_now 90.0
 P _door/4/_ext_ang -10.0
 P _door/4/_ret_ang 90.0
 P _door/4/_type 3
@@ -94,7 +94,7 @@ P _door/4/_xyz/0 -1.099999666
 P _door/4/_xyz/1 -3.199999809
 P _door/4/_xyz/2 6.0
 P _door/4/_xyz/count 3
-P _door/5/_ang_now 12.867507935
+P _door/5/_ang_now 90.0
 P _door/5/_ext_ang -10.0
 P _door/5/_ret_ang 90.0
 P _door/5/_type 3
@@ -156,10 +156,10 @@ P _gear/0/_latN 0.0
 P _gear/0/_latR 0.0
 P _gear/0/_leg_len 3.937007904
 P _gear/0/_lonE 1.0
-P _gear/0/_lonN 88.672416687
+P _gear/0/_lonN 1.0
 P _gear/0/_lonR 96.0
 P _gear/0/_scon 53255.765625000
-P _gear/0/_stat_def 0.045248266
+P _gear/0/_stat_def 0.045248277
 P _gear/0/_steerdeg_hispeed 45.0
 P _gear/0/_steerdeg_lospeed 45.0
 P _gear/0/_strut_comp 0.0
@@ -190,10 +190,10 @@ P _gear/1/_latN 0.0
 P _gear/1/_latR 0.0
 P _gear/1/_leg_len 6.889763355
 P _gear/1/_lonE 4.0
-P _gear/1/_lonN 82.443740845
+P _gear/1/_lonN 4.0
 P _gear/1/_lonR 89.0
 P _gear/1/_scon 53255.765625000
-P _gear/1/_stat_def 0.443075061
+P _gear/1/_stat_def 0.443075180
 P _gear/1/_steerdeg_hispeed 0.0
 P _gear/1/_steerdeg_lospeed 0.0
 P _gear/1/_strut_comp 0.0
@@ -224,10 +224,10 @@ P _gear/2/_latN 0.0
 P _gear/2/_latR 0.0
 P _gear/2/_leg_len 6.889763355
 P _gear/2/_lonE 4.0
-P _gear/2/_lonN 82.443740845
+P _gear/2/_lonN 4.0
 P _gear/2/_lonR 89.0
 P _gear/2/_scon 53255.765625000
-P _gear/2/_stat_def 0.443075061
+P _gear/2/_stat_def 0.443075180
 P _gear/2/_steerdeg_hispeed 0.0
 P _gear/2/_steerdeg_lospeed 0.0
 P _gear/2/_strut_comp 0.0
@@ -245,7 +245,7 @@ P _gear/7/_gear_type 0
 P _gear/8/_gear_type 0
 P _gear/9/_gear_type 0
 P _gear/count 10
-P _lite/0/_dist 250.0
+P _lite/0/_dist 290.0
 P _lite/0/_hide 0
 P _lite/0/_index 0
 P _lite/0/_lite_type landing
@@ -262,8 +262,8 @@ P _lite/0/_v10_att_y_acf_prt_ref 4.039999962
 P _lite/0/_v10_att_z_acf_prt_ref 29.059999466
 P _lite/0/_v10_is_internal 0
 P _lite/0/_v10_steers_with_gear 0
-P _lite/0/_width 40.0
-P _lite/1/_dist 250.0
+P _lite/0/_width 45.0
+P _lite/1/_dist 290.0
 P _lite/1/_hide 0
 P _lite/1/_index 0
 P _lite/1/_lite_type landing
@@ -280,7 +280,7 @@ P _lite/1/_v10_att_y_acf_prt_ref 4.039999962
 P _lite/1/_v10_att_z_acf_prt_ref 29.059999466
 P _lite/1/_v10_is_internal 0
 P _lite/1/_v10_steers_with_gear 0
-P _lite/1/_width 40.0
+P _lite/1/_width 45.0
 P _lite/2/_dist 0.0
 P _lite/2/_hide 0
 P _lite/2/_index 0
@@ -335,7 +335,43 @@ P _lite/4/_v10_att_z_acf_prt_ref 76.900001526
 P _lite/4/_v10_is_internal 6553646
 P _lite/4/_v10_steers_with_gear 0
 P _lite/4/_width 0.0
-P _lite/count 5
+P _lite/5/_dist 160.0
+P _lite/5/_hide 0
+P _lite/5/_index 0
+P _lite/5/_lite_type taxi
+P _lite/5/_rgb/0 1.0
+P _lite/5/_rgb/1 1.0
+P _lite/5/_rgb/2 1.0
+P _lite/5/_rgb/count 3
+P _lite/5/_v10_att_part -1
+P _lite/5/_v10_att_phi_ref 0.0
+P _lite/5/_v10_att_psi_ref 0.0
+P _lite/5/_v10_att_the_ref -8.0
+P _lite/5/_v10_att_x_acf_prt_ref -22.459999084
+P _lite/5/_v10_att_y_acf_prt_ref 4.039999962
+P _lite/5/_v10_att_z_acf_prt_ref 29.059999466
+P _lite/5/_v10_is_internal 0
+P _lite/5/_v10_steers_with_gear 0
+P _lite/5/_width 35.0
+P _lite/6/_dist 160.0
+P _lite/6/_hide 0
+P _lite/6/_index 0
+P _lite/6/_lite_type taxi
+P _lite/6/_rgb/0 1.0
+P _lite/6/_rgb/1 1.0
+P _lite/6/_rgb/2 1.0
+P _lite/6/_rgb/count 3
+P _lite/6/_v10_att_part -1
+P _lite/6/_v10_att_phi_ref 0.0
+P _lite/6/_v10_att_psi_ref 0.0
+P _lite/6/_v10_att_the_ref -8.0
+P _lite/6/_v10_att_x_acf_prt_ref 22.459999084
+P _lite/6/_v10_att_y_acf_prt_ref 4.039999962
+P _lite/6/_v10_att_z_acf_prt_ref 29.059999466
+P _lite/6/_v10_is_internal 0
+P _lite/6/_v10_steers_with_gear 0
+P _lite/6/_width 35.0
+P _lite/count 7
 P _lite_equip/_land_lite_off_on_retract_EQ 0
 P _lite_equip/_taxi_lite_off_on_retract_EQ 0
 P _obja/0/_obj_flags 29
@@ -44968,7 +45004,7 @@ P _part/85/_part_specs_invis 1
 P _part/85/_part_tex 0
 P _part/85/_part_the 0.0
 P _part/85/_part_x 0.0
-P _part/85/_part_y -5.892472744
+P _part/85/_part_y -5.892472267
 P _part/85/_part_z 7.969347000
 P _part/85/_patt_con 0
 P _part/85/_patt_prt 0
@@ -58755,6 +58791,12 @@ P acf/_ann_wav_file/18 autopilot_disco.wav
 P acf/_ann_wav_file/180 bankangle.wav
 P acf/_ann_wav_file/181 NormThrottle.wav
 P acf/_ann_wav_file/182 NormThrottle.wav
+P acf/_ann_wav_file/183 0n.wav
+P acf/_ann_wav_file/184 0n.wav
+P acf/_ann_wav_file/185 0n.wav
+P acf/_ann_wav_file/186 0n.wav
+P acf/_ann_wav_file/187 0n.wav
+P acf/_ann_wav_file/188 0n.wav
 P acf/_ann_wav_file/19 NormThrottle.wav
 P acf/_ann_wav_file/20 NormThrottle.wav
 P acf/_ann_wav_file/21 autopilot_fail.wav
@@ -60279,7 +60321,7 @@ P acf/_feather_on_prop_pull_EQ 0
 P acf/_feathered_pitch 80.500000000
 P acf/_ff_rat_idle_JET 0.100000001
 P acf/_ff_rat_idle_PRP 0.250000000
-P acf/_file_writer_version 111012
+P acf/_file_writer_version 111101
 P acf/_flap1_cd 0.119999997
 P acf/_flap1_cl 0.711000025
 P acf/_flap1_cm -0.214000002
@@ -60687,13 +60729,15 @@ P acf/_part_descrip/86 hgiReG tW raleehnaP
 P acf/_part_descrip/87 Left Wheel Fairing
 P acf/_part_descrip/88 nose landing gear fairing
 P acf/_part_descrip/89 Maingear 2 right axle truck
+P acf/_part_descrip/90 cargo
+P acf/_part_descrip/91 cargo
 P acf/_part_descrip/92 Nosegear axle truck
 P acf/_part_descrip/93 Nosegear steering link arm2
 P acf/_part_descrip/94 Nosegear axle truck
 P acf/_part_descrip/count 95
-P acf/_pe_xyz/0 -1.476377845
-P acf/_pe_xyz/1 2.985564470
-P acf/_pe_xyz/2 9.711286545
+P acf/_pe_xyz/0 -1.480000019
+P acf/_pe_xyz/1 2.990000010
+P acf/_pe_xyz/2 9.710000038
 P acf/_pe_xyz/count 3
 P acf/_phase_hdng_tvect_in_at_00 0
 P acf/_phase_hdng_tvect_in_at_90 0
