@@ -105,7 +105,7 @@ createProp("parshukovedition/overhead_lamp_pilot_left_mode", "int", 0);  --0 off
 createProp("parshukovedition/overhead_lamp_pilot_left_bright", "float", 1);
 createProp("parshukovedition/overhead_lamp_pilot_left_rot_updown", "float", 45);
 createProp("parshukovedition/overhead_lamp_pilot_left_rot_around", "float", 0);
-
+createProp("sim/custom/kln_is_present", "int", 0) 
 
 
 

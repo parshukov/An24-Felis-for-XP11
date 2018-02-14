@@ -1,6 +1,6 @@
 --search and include KLN 90, if it exist in Custom Avionics
 
-createGlobalPropertyi("sim/custom/kln_is_present", 0) 
+
 
 defineProperty("kln_is_present", globalPropertyi("sim/custom/kln_is_present"))
 
