@@ -21,7 +21,8 @@ defineProperty("north_GPK", globalPropertyi("sim/custom/xap/An24_set/north_GPK")
 defineProperty("real_fuel", globalPropertyi("sim/custom/xap/An24_set/real_fuel")) -- switch for real fuel system or FSE compability
 defineProperty("rsbn_dataset", globalPropertyi("sim/custom/xap/An24_rsbn/dataset"))  -- dataset, 0:CIS 1:USSR
 defineProperty("black_box", globalPropertyi("sim/custom/xap/An24_set/black_box"))  -- flight data recording
-
+defineProperty("kln_is_present", globalPropertyi("sim/custom/kln_is_present"))  -- flight data recording
+--set(kln_is_present,0)
 defineProperty("sound_volume", globalPropertyf("sim/custom/xap/An24_set/sound_volume"))  -- flight data recording
 
 
@@ -85,7 +86,7 @@ function file_read()
 		set(set_real_brakes, settings_table["brakes"])
 		set(set_real_tyres, settings_table["tyres"])
 		set(set_active_camera, settings_table["camera"])
-		set(hide_GPS, settings_table["hidegps"])		
+		set(kln_is_present, settings_table["klnispresent"])		
 		set(hide_Garmin, settings_table["hidegarmin"])
 		set(switch_rud, settings_table["rudswitch"])
 		set(north_GPK, settings_table["gpknorth"])
@@ -113,7 +114,7 @@ function file_save()
 	savefile:write("brakes","=",get(set_real_brakes)," \n")
 	savefile:write("tyres","=",get(set_real_tyres)," \n")
 	savefile:write("camera","=",get(set_active_camera)," \n")
-	savefile:write("hidegps","=",get(hide_GPS)," \n")
+	savefile:write("klnispresent","=",get(kln_is_present)," \n")
 	savefile:write("hidegarmin","=",get(hide_Garmin)," \n")
 	savefile:write("rudswitch","=",get(switch_rud)," \n")
 	savefile:write("gpknorth","=",get(north_GPK)," \n")
@@ -446,7 +447,7 @@ components = {
 	switch {
         position = { 470, 362, 22, 50},
         state = function()
-            return get(hide_GPS) ~= 0
+            return get(kln_is_present) ~= 1
         end,
         btnOn = get(tmb_dn),
         btnOff = get(tmb_up),
@@ -454,11 +455,11 @@ components = {
             if not switcher_pushed then
 			playSample(switch_sound, 0)
 			switcher_pushed = true
-			if get(hide_GPS) ~= 0 then
-                set(hide_GPS, 0)
+			if get(kln_is_present) == 0 then
+                set(kln_is_present, 1)
 				if get(hide_Garmin) == 0 then set(hide_Garmin, 1) end
             else
-                set(hide_GPS, 1)
+				set(kln_is_present, 0)
             end
 		end
             return true;
@@ -484,7 +485,7 @@ components = {
 			switcher_pushed = true
 			if get(hide_Garmin) ~= 0 then
                 set(hide_Garmin, 0)
-				if get(hide_GPS) == 0 then set(hide_GPS, 1) end
+				if get(kln_is_present) == 1 then set(kln_is_present, 0) end
             else
                 set(hide_Garmin, 1)
             end

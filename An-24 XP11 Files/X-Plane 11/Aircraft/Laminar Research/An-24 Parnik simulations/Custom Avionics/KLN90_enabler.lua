@@ -17,7 +17,7 @@ local filename2 = "KLN 90B Navdata/database.txt"
 if (isFileExists(panelDir.."/Custom Avionics/KLN90.lua") and not coded) or (isFileExists(panelDir.."/Custom Avionics/KLN90.sec") and coded) then 
 	print("found KLN90, trying to open it")
 	if isFileExists(filename1)==true and isFileExists(filename2)==true then
-		set(kln_is_present, 1)
+		--set(kln_is_present, 1)
 		
 	end
 	-- include("KLN90.lua") 
