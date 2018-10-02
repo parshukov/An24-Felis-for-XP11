@@ -1,4 +1,4 @@
-print("it's An24 version 3.5RC1 Parnik Simulations")
+print("it's An24 version 3.5.8 Parnik Simulations")
 size = { 2048, 2048 }
 
 -- 3D panel issue workaround

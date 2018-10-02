@@ -169,7 +169,7 @@ function update()
 			set(flight_hour_angle,get(flight_time) * 360 / (60 * 60 * 12))
 			set(flight_min_angle, get(flight_hour_angle) * 12)
 		else
-			set(flight_hour_angle, flight_time * 360 / (60 * 60 * 12))
+			set(flight_hour_angle, get(flight_time) * 360 / (60 * 60 * 12))
 			set(flight_min_angle,get(flight_hour_angle) * 12)
 		end
 		
