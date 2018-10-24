@@ -1530,6 +1530,22 @@ function onAirplaneCountChanged()
     callCallbackForAll("onAirplaneCountChanged")
 end
 
+-- called whenever user plane is crashed. Returns 1 if SASL system is need to be reloaded, 0 otherwise
+function onPlaneCrash()
+    local planeCrashHandler = rawget(panel, 'onPlaneCrash')
+    needReload = 1
+    if planeCrashHandler then
+        needReload = planeCrashHandler()
+    end
+    if needReload == 0 then
+        for i = #panel.components, 1, -1 do
+            callCallback('onPlaneCrash', panel.components[i])
+        end
+        callCallback('onPlaneCrash', popups)
+    end
+    return needReload
+end
+
 -- merges two tables 
 function table.merge(t1, t2) 
 	t={}

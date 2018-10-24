@@ -1,9 +1,10 @@
-print("it's An24 version 3.5.8 Parnik Simulations")
+print("it's An24 version 3.9 Parnik Simulations")
 size = { 2048, 2048 }
 
 -- 3D panel issue workaround
 fixedPanelWidth = 2048
 fixedPanelHeight = 2048
+setRenderingMode2D(SASL_RENDER_2D_MULTIPASS)
 local a=0
 -- check sim version
 createProp("sim/custom/xap/sim_version", "int", 9);
@@ -78,6 +79,16 @@ createProp("sim/custom/xap/An24_power/bus_DC_27_volt", "float", 27);
 
 
 --createProp("parshukovedition/lightarray", "float[12]");
+
+createProp("parshukovedition/rsbn_set_ZPU", "float", 0)
+createProp("parshukovedition/rsbn_set_targetangle", "float", 0)
+createProp("parshukovedition/rsbn_set_targetdist", "float", 0)
+createProp("parshukovedition/rsbn_ch1", "float", 0)
+createProp("parshukovedition/rsbn_ch2", "float", 0)
+createProp("parshukovedition/rsbn_mode", "float", 0)
+createProp("parshukovedition/rsbn_power_sw", "float", 0)
+createProp("parshukovedition/rsbn_set_azimut", "float", 0)
+createProp("parshukovedition/rsbn_set_orbit", "float", 0)
 
 
 createProp("parshukovedition/test_lamp_pilot", "int", 0);
