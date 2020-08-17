@@ -1,0 +1,35 @@
+###########################
+  DO NOT MODIFY THIS FILE!
+YOU SHOULDN'T EVEN READ IT!
+###########################
+#1                       
+#2    PRESS LEFT CRSR    
+#3      TO CUSTOMIZE     
+#4       THIS PAGE       
+#Timezone1
+#Barounit1
+#GPSHobbs18990.590603636
+#GPSTurnons19
+#LastAPT01ID 
+#LastLat0
+#LastLon0
+#RWYminlength1000
+#RWYsurface1
+#Fuelunit3
+#Primary1
+#RealGPS15
+#Timerstart0
+#Turnanti1
+#HSIinterf1
+#Volume50
+#VNV GS0
+#NAV5RNG0
+#NAV5BRNG13
+#NAV5LNS111
+#NAV5SHOW0000
+#NAV5Clut0
+#NAV5ORIS0
+Ok, here's something
+to keep you entertained:
+Go to the STA 4 page
+and turn the left CRSR on

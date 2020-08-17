@@ -1,0 +1,402 @@
+### Первоисточник:
+### AN-24 Aircraft Checklist, english
+### for Checklister plugin
+### modified for conformance with 64-bit Xchecklist plugin
+### Maxim Tushkanov
+### -------------------------------------------------------------------
+### Переведен на русский, дополнен и адаптирован к версии 3.6.0 
+### ОЛЕГ ТРОНОВ, ЛЕОНИД КОНДРАШОВ, август 2020 г.
+###--------------------------------------------------------------------
+
+sw_define_colour:red:1.0,0.0,0.0
+sw_define_colour:green:0.0,1.0,0.0
+sw_define_colour:yellow:1.0,1.0,0.0
+sw_define_colour:darkorange:1.0,0.54,0.0
+
+sw_checklist:ПРЕДПОЛЁТНЫЕ ПРОЦЕДУРЫ
+sw_rcolsize:20
+sw_item_c:\yellow\Добро пожаловать на борт, командир|БОРТ:sim/cockpit/radios/com2_freq_hz:13080
+sw_item:Режим питания|БОРТ:sim/custom/xap/An24_power/power_mode:2
+## sw_item:Радио Com 2 131.800|НАСТРОЕНО:sim/cockpit/radios/com2_freq_hz:13180
+sw_item:Заглушки, чехлы, крышки моторов|СНЯТЫ:(sim/custom/xap/An24_covers/antiice_left:1)&&(sim/custom/xap/An24_covers/antiice_right:1)&&(sim/custom/xap/An24_covers/pitot_1:1)&&(sim/custom/xap/An24_covers/pitot_2:1)&&(sim/custom/xap/An24_covers/pitot_3:1)&&(sim/custom/xap/An24_covers/rockets:1)&&(sim/custom/xap/An24_covers/left_eng_ext:1)&&(sim/custom/xap/An24_covers/left_eng_main:1)&&(sim/custom/xap/An24_covers/right_eng_ext:1)&&(sim/custom/xap/An24_covers/right_eng_main:1)&&(sim/custom/xap/An24_covers/ru19_eng_ext:1)
+sw_item:Башмаки шасси, заземление|УСТАНОВЛЕНЫ:(sim/custom/xap/An24_covers/gear_blocks:0)&&(sim/custom/xap/An24_covers/grounding:0)
+sw_item:Грузовые люки|ОТКРЫТЫ:(sim/cockpit2/switches/custom_slider_on[4]:1)&&(sim/cockpit2/switches/custom_slider_on[6]:1)
+sw_item:Пассажирская дверь|ОТКРЫТА:(sim/cockpit2/switches/custom_slider_on[5]:1)
+sw_item:Лестница|УСТАНОВЛЕНА:(sim/cockpit2/switches/custom_slider_on[7]:1)
+sw_item:Форточки|ОТКРЫТЫ:(sim/cockpit2/switches/custom_slider_on[2]:1)&&(sim/cockpit2/switches/custom_slider_on[3]:1)
+sw_itemvoid_c:\green\Посадка в самолет
+
+sw_checklist:ПОЛЁТНОЕ ЗАДАНИЕ 
+sw_rcolsize:20
+sw_itemvoid:План полёта|СОЗДАН
+sw_itemvoid:КЛН-90|ВВЕСТИ ПЛАН ПОЛЕТА
+sw_itemvoid:Частоты маяков |НАСТРОЕНЫ
+sw_itemvoid:Топливо, загрузка, триммер РВ|РАССЧИТАНЫ
+sw_itemvoid:Значения топливомеров|РАСЧИТАНЫ, ВНЕСЕНЫ 
+sw_itemvoid:Загрузка|ВЫПОЛНЕНА
+sw_item:Топливо, загрузка, триммер РВ|РАССЧИТАНЫ
+sw_item:Лестница|УБРАНА:sim/cockpit2/switches/custom_slider_on[7]:0
+sw_item:Пассажирская дверь|ЗАКРЫТЫ:sim/cockpit2/switches/custom_slider_on[5]:0
+sw_item:Грузовые люки, пассажирская дверь|ЗАКРЫТЫ :(sim/cockpit2/switches/custom_slider_on[4]:0)&&(sim/cockpit2/switches/custom_slider_on[6]:0)
+sw_item:МСРП, ЛПМ|ВКЛ:parshukovedition/msrp_switch:1
+sw_item:МСРП, Контроль|ВКЛ:parshukovedition/msrplight:1
+
+sw_checklist:ЗАПУСК ОТ РУ-19
+sw_rcolsize:20
+sw_item:РУД РУ-19|НА ПРОХОДН. ЗАЩЁЛКУ:sim/custom/xap/An24_misc/virt_rud3:>0.05
+sw_item:Правый топливный кран|ОТКРЫТ:sim/custom/xap/An24_fuel/pump3_switch:1
+sw_item:Пожарный кран РУ-19|ОТКРЫТ:sim/custom/xap/An24_fuel/fire_valve3_sw:1
+sw_item:Главный выключатель|ВКЛ:sim/custom/xap/An24_start/ru19_start_main_sw:1
+sw_item:Переключатель режимов|ЗАПУСК:sim/custom/xap/An24_start/ru19_start_mode:1
+sw_item:Колпачок кнопки запуска|ОТКРЫТ:sim/custom/xap/An24_start/ru19_ground_start_cap:1
+sw_item:Кнопка "Запуск на земле"|НАЖАТЬ:sim/custom/xap/An24_start/ru19_ground_start_btn:1
+sw_item:Секундомер|СТАРТ:parshukovedition/clocks/sec_mode:0:1
+sw_item:Секундомер, ВЫДЕРЖАТЬ|1 МИНУТУ:parshukovedition/clocks/sec_time:>60.0
+sw_item:РУД РУ-19|90%:sim/custom/xap/An24_start/ru19_N1:>90
+sw_item:Генератор ГС-24|ВКЛЮЧЕНО:sim/custom/xap/An24_power/gs24_on_bus:1
+sw_item:Напряжение, пост. ток |ПРОВЕРКА:sim/custom/xap/An24_power/DC_volt_mode:5
+sw_item:Преобразователь ПО-750|ВКЛЮЧЕНО:sim/custom/xap/An24_power/inv_PT750:1
+sw_item:Напряжение, перемен. ток, 115В  |ПРОВЕРКА:sim/custom/xap/An24_power/AC115_volt_mode:0
+sw_item:Главный выключатель|ВЫКЛ:sim/custom/xap/An24_start/ru19_start_main_sw:0
+sw_itemvoid: 
+sw_itemvoid_c:\green\РУ-19 ЗАПУЩЕН, 
+sw_itemvoid_c:\green\ПРИСТУПАЕМ К ЗАПУСКУ 
+sw_continue:ЗАПУСК
+
+sw_checklist:ЗАПУСК ОТ АЭРОДРОМНОГО ПИТАНИЯ
+sw_rcolsize:20
+sw_item:Подкл. к наземному питанию|ЗАПРОСИТЬ:sim/custom/xap/An24_power/ground_available:1
+sw_item:Режим питания|АЭРОДРОМ:sim/custom/xap/An24_power/power_mode:0
+sw_item:Напряжение, пост. ток |ПРОВЕРКА:sim/custom/xap/An24_power/DC_volt_mode:1:0
+sw_item:ПО-750|АЭРОДРОМН. ПИТАНИЕ:sim/custom/xap/An24_power/PO750_mode:0
+sw_item:Напряжение, перемен. ток, 115В  |ПРОВЕРКА:(sim/custom/xap/An24_power/AC115_volt_mode:1)
+sw_itemvoid: 
+sw_itemvoid:САМОЛЕТ К НАЗЕМНОМУ ПИТАНИЮ
+sw_itemvoid:ПОДКЛЮЧЕН, 
+sw_itemvoid:ПРИСТУПАЕМ К ЗАПУСКУ
+sw_continue:ЗАПУСК
+
+sw_checklist:ЗАПУСК
+sw_rcolsize:20
+sw_item:Пожаротушение|ПРОВЕРКА:sim/custom/xap/An24_fire/fire_main_switcher:-1
+sw_item:Пожаротушение|ВКЛ:sim/custom/xap/An24_fire/fire_main_switcher:1
+sw_item:Топливомер лев., прав.|ВКЛ:(sim/custom/xap/An24_fuel/q_meter1_switch:1)&&(sim/custom/xap/An24_fuel/q_meter2_switch:1)
+sw_item:Расходометр|ВКЛ:sim/custom/xap/An24_fuel/ff_meter_switch:1
+sw_item:Автомат. расход топлива|ВКЛ:sim/custom/xap/An24_fuel/auto_ff_switch:1
+sw_itemvoid:Количество топлива|ПРОВЕРЕНО
+sw_itemvoid:Заслонки маслорадиатора|ЗАКРЫТЫ, АВТО
+sw_item:АНО|ВКЛ:sim/custom/xap/An24_misc/nav_light_sw:1
+sw_itemvoid:
+sw_itemvoid:ДАВЛЕНИЕ:
+sw_item:- в ОСНОВНОЙ гидросистеме|НЕДОСТАТОЧНО:sim/custom/xap/An24_hydro/main_press:<120
+sw_item:- в РЕЗЕРВНОЙ гидросистеме|НЕДОСТАТОЧНО:sim/custom/xap/An24_hydro/emerg_press:<130
+sw_item:- подкачка|ВЫПОЛНЯЕТСЯ:(sim/custom/xap/An24_hydro/emerg_pump_sw:1)&&(sim/custom/xap/An24_hydro/hydro_circle:1)
+sw_itemvoid:ДАВЛЕНИЕ:
+sw_item:- в ОСНОВНОЙ гидросистеме|В НОРМЕ:sim/custom/xap/An24_hydro/main_press:>120
+sw_item:- в РЕЗЕРВНОЙ гидросистеме|В НОРМЕ:sim/custom/xap/An24_hydro/emerg_press:>130
+sw_item:- подкачка|ОСТАНОВЛЕНА:(sim/custom/xap/An24_hydro/hydro_circle:0)&&(sim/custom/xap/An24_hydro/emerg_pump_sw:0)
+sw_item:- в тормозах|ПРОВЕРЕНО:sim/custom/xap/An24_hydro/brake_press:>120
+sw_itemvoid:
+sw_item:Пожарные краны|ОТКРЫТЫ:(sim/custom/xap/An24_fuel/fire_valve1_sw:1)&&(sim/custom/xap/An24_fuel/fire_valve2_sw:1)
+sw_item:Дежурные баки|ОТКРЫТЫ:(sim/custom/xap/An24_fuel/pump2_switch:1)&&(sim/custom/xap/An24_fuel/pump3_switch:1)
+sw_item:Топливные насосы|АВТОМАТ:(sim/custom/xap/An24_fuel/pump1_switch:2)&&(sim/custom/xap/An24_fuel/pump4_switch:2)
+sw_item:Винты|СНЯТЫ С УПОРА:sim/custom/xap/An24_prop/pitch_stop_set:0
+sw_item:Индикатор вибрации ИВ-41|ВКЛ, ПРОВЕРКА:(sim/custom/xap/An24_gauges/iv41_sw:1)&&(sim/custom/xap/An24_gauges/iv41_test:1)
+sw_continue
+
+sw_checklist:ЗАПУСК ЛЕВОГО ДВИГАТЕЛЯ
+sw_rcolsize:20
+sw_item:Щиток "Запуск на земле"|ОТКРЫТ:(sim/cockpit2/switches/custom_slider_on[13]:1)
+sw_item:Переключатель режимов|ЗАПУСК:sim/custom/xap/An24_start/eng_start_mode:1
+sw_item:Запуск двигателя|ЗЕМЛЯ:sim/custom/xap/An24_start/start_at_ground:1
+sw_itemvoid:
+sw_item:Выбор двигателя|ЛЕВЫЙ:sim/custom/xap/An24_start/sel_left_right:-1
+sw_item:Cистема ПРТ-24|ВКЛ:sim/custom/xap/An24_start/left_prt24_on:1
+sw_item:Кнопка "Запуск"|НАЖАТА:sim/custom/xap/An24_start/eng_start_btn:1
+sw_itemvoid:Индикатор "Работа АПД" светится белым
+sw_itemvoid: 
+sw_item:Секундомер|СТАРТ:parshukovedition/clocks/sec_mode:0:1
+sw_item:Секундомер, ВЫДЕРЖАТЬ|1 МИНУТУ:parshukovedition/clocks/sec_time:>60.0
+sw_itemvoid:Обороты, температура выхлопных
+sw_itemvoid:газов, крутящий момент растут.
+sw_itemvoid:При достижении мощности 90%,
+sw_itemvoid:включить генераторы
+sw_itemvoid: 
+sw_item:Генератор пост. тока, левый|ВКЛ:sim/custom/xap/An24_power/stg1_on_bus:1
+sw_item:Напряжение, пост.ток|ПРОВЕРКА:sim/custom/xap/An24_power/DC_volt_mode:6
+sw_item:Генератор перемен. тока, левый|ВКЛ:sim/custom/xap/An24_power/go1_on_bus:1
+sw_item:Напряжение, перем. ток, 115В|ПРОВЕРКА:sim/custom/xap/An24_power/AC115_volt_mode:2
+sw_itemvoid: 
+sw_itemvoid_c:\green\ЛЕВЫЙ ЗАПУЩЕН
+sw_continue
+
+sw_checklist:ЗАПУСК ПРАВОГО ДВИГАТЕЛЯ
+sw_rcolsize:20
+sw_itemvoid: 
+sw_item:Выбор двигателя|ПРАВЫЙ:sim/custom/xap/An24_start/sel_left_right:1
+sw_item:Cистема ПРТ-24|ВКЛ:sim/custom/xap/An24_start/right_prt24_on:1
+sw_item:Кнопка "Запуск"|НАЖАТА:sim/custom/xap/An24_start/eng_start_btn:1
+sw_itemvoid:Индикатор "Работа АПД" светится белым
+sw_item:Секундомер|СТАРТ:parshukovedition/clocks/sec_mode:0:1
+sw_item:Секундомер, ВЫДЕРЖАТЬ|1 МИНУТУ:parshukovedition/clocks/sec_time:>60.0
+sw_itemvoid:Обороты, температура выхлопных
+sw_itemvoid:газов, крутящий момент растут.
+sw_itemvoid:При достижении мощности 90%,
+sw_itemvoid:включить генераторы
+sw_itemvoid: 
+sw_item:Генератор пост. тока, правый|ВКЛ:sim/custom/xap/An24_power/stg2_on_bus:1
+sw_item:Напряжение, пост. ток|ПРОВЕРКА:sim/custom/xap/An24_power/DC_volt_mode:7
+sw_item:Генератор перемен. тока, правый|ВКЛ:sim/custom/xap/An24_power/go2_on_bus:1
+sw_item:Напряжение, перемен. ток, 115В|ПРОВЕРКА:sim/custom/xap/An24_power/AC115_volt_mode:3
+sw_itemvoid: 
+sw_itemvoid_c:\green\ПРАВЫЙ ЗАПУЩЕН
+sw_item:Преобразователь ПО-1000|ВКЛ:sim/custom/xap/An24_power/PT1000_mode:2
+sw_item:Напряжение, перемен. ток, 36В|ПРОВЕРКА:sim/custom/xap/An24_power/AC36_volt_mode:2
+sw_continue
+
+sw_checklist:ЩИТОК "ЗАПУСК НА ЗЕМЛЕ" 
+sw_rcolsize:20
+sw_item:Переключатель режимов|ХОЛОДНАЯ ПРОКРУТКА:sim/custom/xap/An24_start/eng_start_mode:0
+sw_item:Выбор двигателя|НЕЙТРАЛЬНЫЙ:sim/custom/xap/An24_start/sel_left_right:0
+sw_item:Запуск двигателя|КОЛПАЧОК ЗАКРЫТ:sim/custom/xap/An24_start/start_at_ground_cap:0
+sw_item:Щиток "Запуск на земле"|ЗАКРЫТ:(sim/cockpit2/switches/custom_slider_on[13]:0)
+
+ 
+sw_checklist:ВЫКЛЮЧЕНИЕ РУ-19
+sw_rcolsize:20 
+sw_item:РУД РУ-19|НА ПРОХОДН. ЗАЩЁЛКУ:sim/custom/xap/An24_misc/virt_rud3:<0.06
+sw_item:Секундомер|СТАРТ:parshukovedition/clocks/sec_mode:0:1
+sw_item:Секундомер, ВЫДЕРЖАТЬ|1 МИНУТУ:parshukovedition/clocks/sec_time:>60.0
+sw_item:Генератор ГС-24|ВЫКЛ:sim/custom/xap/An24_power/gs24_on_bus:0
+sw_item:Поднять проходн. защёлку РУ-19|РУД В МАЛЫЙ ГАЗ:sim/custom/xap/An24_misc/rud_close_ru19:1
+sw_item:Пожарный кран РУ-19|ЗАКРЫТ:sim/custom/xap/An24_fuel/fire_valve3_sw:0
+
+sw_item:Переключатель режимов|ХОЛОДНАЯ ПРОКРУТКА:sim/custom/xap/An24_start/ru19_start_mode:0
+sw_item:Колпачок кнопки запуска|ЗАКРЫТ:sim/custom/xap/An24_start/ru19_ground_start_cap:0
+sw_itemvoid: 
+sw_itemvoid_c:\green\РУ-19 ВЫКЛЮЧЕН 
+sw_continue:ПОСЛЕ ЗАПУСКА
+
+sw_checklist:ОТКЛЮЧЕНИЕ ОТ АЭРОДРОМНОГО ПИТАНИЯ
+sw_rcolsize:20
+sw_itemvoid: 
+sw_item:Режим питания|БОРТ:sim/custom/xap/An24_power/power_mode:2
+sw_item:ПО-750|ПО-750:sim/custom/xap/An24_power/inv_PT750:1
+sw_item:Преобразователь ПО-1000|ВКЛ:sim/custom/xap/An24_power/PT1000_mode:2
+sw_item:Напряжение, перемен. ток, 36В|ПРОВЕРКА:sim/custom/xap/An24_power/AC36_volt_mode:0:8
+sw_itemvoid:
+sw_item:Откл. от наземного питания|ЗАПРОСИТЬ:sim/custom/xap/An24_power/ground_available:0
+sw_itemvoid: 
+sw_itemvoid:САМОЛЕТ ОТ АЭРОДРОМНОГО 
+sw_itemvoid_c:\green\ПИТАНИЯ ОТКЛЮЧЕН 
+sw_continue
+
+sw_checklist:ПОСЛЕ ЗАПУСКА
+sw_rcolsize:20
+sw_item:Опробовать двигатели|ДО 30 УПРТ:(sim/custom/xap/An24_gauges/torque_left:25|30)&&(sim/custom/xap/An24_gauges/torque_right:25|30)
+sw_item:Проверка флюгирования ЛЕВОГО|ПАДЕНИЕ ОБОРОТОВ 5-10%:sim/custom/xap/An24_prop/feather1_test1:1
+sw_item:Проверка флюгирования ПРАВОГО|ПАДЕНИЕ ОБОРОТОВ 5-10%:sim/custom/xap/An24_prop/feather2_test1:1
+sw_item:ВЫКЛ проверку флюгирования|МАЛЫЙ ГАЗ:(sim/flightmodel/engine/ENGN_thro[0]:0|0.23)&&(sim/flightmodel/engine/ENGN_thro[1]:0|0.23)
+sw_item:Уровень проходной защёлки|УСТАНОВЛЕН
+sw_item:Все потребители|ВКЛ:(sim/custom/xap/An24_gauges/bkk_sw:1)&&(sim/custom/xap/An24_gauges/AGB_left:1)&&(sim/custom/xap/An24_gauges/AGD_left:1)&&(sim/custom/xap/An24_gauges/rv_2_sw:1)&&(sim/custom/xap/An24_gauges/feet_meter_sw:1)&&(sim/custom/xap/An24_gauges/GIK_sw:1)&&(sim/custom/xap/An24_gauges/AGD_right:1)&&(sim/custom/xap/An24_gauges/GPK_sw:1)&&(sim/custom/xap/An24_gauges/uvid_30_sw:1)
+sw_item:Авиагоризонт АГД-1 левый|РИСКИ СОВМЕЩЕНЫ:sim/custom/xap/An24_misc/ag1_pitch:<0.1
+sw_item:Авиагоризонт АГД-1 правый|РИСКИ СОВМЕЩЕНЫ:sim/custom/xap/An24_misc/ag2_pitch:<0.1
+sw_item:Авиагоризонт АГБ-3|РИСКИ СОВМЕЩЕНЫ:sim/custom/xap/An24_misc/ag3_pitch:<0.1
+sw_item:Гирокомпасы |ВКЛ, СОГЛАСОВАНЫ:sim/custom/xap/An24_gauges/GIK_button:1 
+sw_item:Широта|УСТАНОВЛЕНА:sim/custom/xap/An24_gauges/GPK_lat:><1
+sw_item:ГПК-52|СОГЛАСОВАН:sim/custom/xap/An24_gauges/GPK_corr_rot:><1
+sw_item:Автоомат торможение колес|ВКЛ:sim/custom/xap/An24_hydro/abs_sw:1
+sw_item:Отбор воздуха от двигателей|ВКЛ:(sim/custom/xap/An24_skv/bleed1_sw:1)&&(sim/custom/xap/An24_skv/bleed2_sw:1)
+sw_itemvoid:
+sw_itemvoid:Установить давление аэродрома 
+sw_item:Метровый высотомер КВС|УСТАНОВЛЕНО:1:closer_than({sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot},{parshukovedition/inchhg},0.03)
+sw_item:Футовый высотомер КВС|УСТАНОВЛЕНО:1:closer_than({sim/custom/xap/An24_gauges/feet_meter_press},{parshukovedition/inchhg},0.03)
+sw_item:Метровый высотомер второго пилота|УСТАНОВЛЕНО:1:closer_than({sim/cockpit2/gauges/actuators/barometer_setting_in_hg_copilot},{parshukovedition/inchhg},0.03)
+sw_itemvoid:
+sw_itemvoid:Давление аэродрома|ПРОВЕРЕНО, УСТАНОВЛЕНО
+sw_itemvoid:
+sw_item:АРК1, режим КОМП1|ВКЛЮЧЕНО:sim/custom/xap/An24_ark/ark1_mode:1
+sw_item:АРК2, режим КОМП2|ВКЛЮЧЕНО:sim/custom/xap/An24_ark/ark2_mode:4
+sw_item:Маркер|МАРШРУТ:sim/custom/xap/An24_gauges/mrp_mode:1
+sw_item:VOR1, настроен|ВКЛЮЧЁН:sim/custom/xap/An24_gauges/curs_mp1_sw:1
+sw_item:VOR1, настороен|ВКЛЮЧЁН:sim/custom/xap/An24_gauges/curs_mp2_sw:1
+sw_continue
+
+sw_checklist:ПЕРЕД РУЛЕНИЕМ
+sw_rcolsize:20
+sw_item:Форточки|ЗАКРЫТЫ:(sim/cockpit2/switches/custom_slider_on[2]:0)&&(sim/cockpit2/switches/custom_slider_on[3]:0)
+sw_item:Грузовые люки, пассажирская дверь|ЗАКРЫТЫ :(sim/cockpit2/switches/custom_slider_on[4]:0)&&(sim/cockpit2/switches/custom_slider_on[6]:0)&&(sim/cockpit2/switches/custom_slider_on[5]:0)
+sw_item:Заземление|УБРАНО:sim/custom/xap/An24_covers/grounding:1
+sw_item:Башмаки шасси|УБРАНЫ:sim/custom/xap/An24_covers/gear_blocks:1
+sw_item:Табло "ПРИСТЕГНУТЬ РЕМНИ, НЕ КУРИТЬ"|ВКЛ:parshukovedition/nosmokingswitch:1
+sw_continue
+
+sw_checklist:РУЛЕНИЕ
+sw_rcolsize:20
+sw_itemvoid:Проверка правильности отклика рулей
+sw_item:Крен|ПРОВЕРЕНО:sim/flightmodel2/controls/roll_ratio:-0.9:0.9
+sw_item:Тангаж|ПРОВЕРЕНО:sim/flightmodel2/controls/pitch_ratio:-0.9:0.9
+sw_item:Рыскание|ПРОВЕРЕНО:sim/flightmodel2/controls/heading_ratio:-0.9:0.9
+sw_item:Код ответчика|УСТАНОВЛЕН
+sw_item:Ответчик|РЕЖИМ "А":sim/custom/xap/An24_sq/sq_mode:0
+sw_item:Управление передней стойкой|РУЛЕНИЕ:sim/custom/xap/An24_gauges/noseweel:-1
+sw_item:Фары|ВЫПУЩЕНЫ:sim/custom/xap/An24_misc/lan_light_open_sw:1
+sw_item:Режим фар|МАЛЫЙ СВЕТ:sim/custom/xap/An24_misc/lan_light_sw:-1
+sw_item:Триммер РН|НЕЙТРАЛЬНО:sim/cockpit2/controls/rudder_trim:< 0.01
+sw_item:Триммер элеронов|НЕЙТРАЛЬНО:sim/cockpit2/controls/aileron_trim:< 0.01
+sw_item:Обогрев ПВД-7 лев.|КОНТРОЛЬ:sim/custom/xap/An24_ice/pitot1_sw:-1
+sw_item:Обогрев ППД-1|КОНТРОЛЬ:sim/custom/xap/An24_ice/aoa_ht_sw:-1
+sw_item:Обогрев ПВД-7 прав.|КОНТРОЛЬ:sim/custom/xap/An24_ice/pitot2_sw:-1
+sw_item:Обогрев ПВД-7 лев.|ВКЛ:sim/custom/xap/An24_ice/pitot1_sw:1
+sw_item:Обогрев ППД-1|ВКЛ:sim/custom/xap/An24_ice/aoa_ht_sw:1
+sw_item:Обогрев ПВД-7 прав.|ВКЛ:sim/custom/xap/An24_ice/pitot2_sw:1
+sw_itemvoid:Тормоза|ПРОВЕРЕНЫ
+sw_continue
+
+sw_checklist:НА ПРЕДВАРИТЕЛЬНОМ
+sw_rcolsize:20
+sw_item:Режим фар|БОЛЬШОЙ СВЕТ:sim/custom/xap/An24_misc/lan_light_sw:1
+sw_item:Ответчик|РЕЖИМ "С":sim/custom/xap/An24_sq/sq_mode:2
+sw_item:Авиагоризонт АГД-1 левый|РИСКИ СОВМЕЩЕНЫ:sim/custom/xap/An24_misc/ag1_pitch:<0.1
+sw_item:Авиагоризонт АГД-1 правый|РИСКИ СОВМЕЩЕНЫ:sim/custom/xap/An24_misc/ag2_pitch:<0.1
+sw_item:Авиагоризонт АГБ-3|РИСКИ СОВМЕЩЕНЫ:sim/custom/xap/An24_misc/ag3_pitch:<0.1
+sw_itemvoid:Гирокомпас|ПРОВЕРКА, КОРРЕКЦИЯ
+sw_item:Закрылки|ВЫПУСК 15 ГРАД.:sim/cockpit2/controls/flap_ratio:>0.370
+sw_itemvoid:Триммер|ПО ЦЕНТРОВКЕ
+sw_item:Отбор воздуха от двигателей|ВЫКЛЮЧЕН:(sim/custom/xap/An24_skv/bleed1_sw:0)&&(sim/custom/xap/An24_skv/bleed2_sw:0)
+sw_item:Погодный радар, питание|ВКЛЮЧЕНО:sim/custom/xap/An24_rls/rls_power_sw:1
+sw_continue
+ 
+sw_checklist:НА ИСПОЛНИТЕЛЬНОМ
+sw_rcolsize:20
+sw_item:Управление передней стойкой|ВЗЛЕТ ПОСАДКА:sim/custom/xap/An24_gauges/noseweel:1
+sw_item:Промежуточнный упор винтов|ВКЛ:sim/custom/xap/An24_prop/pitch_stop_set:1
+sw_item:Погодный радар, режим|СНОС:sim/custom/xap/An24_rls/rls_mode_lamp:2
+sw_itemvoid:
+sw_item_c:\darkorange\Время записать, часы АЧС-1|\darkorange\ЗАПУСТИТЬ:parshukovedition/clocks/flight_mode:1
+sw_continue
+
+sw_checklist:ВЗЛЁТ
+sw_rcolsize:20
+sw_item:Режим двигателей|ВЗЛЁТНЫЙ:(sim/flightmodel/engine/ENGN_thro[0]:0.89|0.99)
+sw_item:Тормоза|ОТПУСТИТЬ:(sim/flightmodel/controls/l_brake_add:0)&&(sim/flightmodel/controls/r_brake_add:0)
+sw_item:Скорость, 190 км/час|ПОДЪЕМ:sim/flightmodel/position/indicated_airspeed:>102
+sw_item:Высота 5-10 м|ШАССИ, УБРАТЬ:sim/cockpit2/gauges/indicators/radio_altimeter_height_ft_pilot:>32
+sw_item:Режим двигателей, номинальный|65 УПРТ:(sim/flightmodel/engine/ENGN_thro[0]:0.6|0.7)&&(sim/flightmodel/engine/ENGN_thro[1]:0.6|0.7)
+sw_itemvoid:Вертикальная скорость|5 м/c
+sw_item:Высота 150 м, скорость 250 км/ч|ЗАКРЫЛКИ, УБРАТЬ:sim/cockpit2/gauges/indicators/radio_altimeter_height_ft_pilot:>492
+sw_item:Закрылки|УБРАНЫ:sim/cockpit2/controls/flap_ratio:0
+sw_itemvoid:Набор высоты, 3-7 м/с|300-350 км/ч
+sw_item:Автопилот|ВКЛ:(sim/custom/xap/An24_ap/ap_power:1)&&(sim/custom/xap/An24_ap/ap_ON:1)
+sw_item:Отбор воздуха от двигателей|ВКЛ:(sim/custom/xap/An24_skv/bleed1_sw:1)&&(sim/custom/xap/An24_skv/bleed2_sw:1)
+sw_continue
+
+sw_checklist:НАБОР
+sw_rcolsize:20
+sw_itemvoid:НА ВЫСОТЕ ПЕРЕХОДА
+sw_item:Метровый высотомер КВС|760, УСТАНОВЛЕНО:sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot:29.9018898|29.9406200
+sw_item:Футовый высотомер КВС|1013, УСТАНОВЛЕНО:sim/custom/xap/An24_gauges/feet_meter_press:29.9018898|29.9406200
+#29.914015
+sw_item:Метровый высотомер второго пилота|760, УСТАНОВЛЕНО:sim/cockpit2/gauges/actuators/barometer_setting_in_hg_copilot:29.9018898|29.9406200
+sw_itemvoid:
+sw_item:ВЫСОТА, 3000 м|ДОСТИГНУТА:sim/cockpit2/gauges/indicators/radio_altimeter_height_ft_pilot:9600|9900
+sw_item:Режим фар|ВЫКЛ, УБРАТЬ:(sim/custom/xap/An24_misc/lan_light_open_sw:0)&&(sim/custom/xap/An24_misc/lan_light_sw:0)
+sw_continue
+
+sw_checklist:НА ЭШЕЛОНЕ
+sw_rcolsize:20
+sw_itemvoid:
+sw_item:Скорость, приборная|350-400 км/ч:sim/flightmodel/position/indicated_airspeed:189|400
+sw_item:Режим двигателей, крейсерский|52 УПРТ:(sim/flightmodel/engine/ENGN_thro[0]:0.50|0.55)
+sw_item:Табло "ПРИСТЕГНУТЬ РЕМНИ, НЕ КУРИТЬ"|ВЫКЛ:parshukovedition/nosmokingswitch:0
+sw_continue
+
+sw_checklist:ПЕРЕД СНИЖЕНИЕМ
+sw_rcolsize:20
+sw_itemvoid:Дистанцию снижения ДО высоты круга 
+sw_itemvoid:рассчитать, исходя из Vсниж.|5-6 м/с
+sw_itemvoid:Радиовысотомер, ВЫСОТА КРУГА|УСТАНОВЛЕНА 
+sw_itemvoid: 
+sw_item:Маркер|ПОСАДКА:sim/custom/xap/An24_gauges/mrp_mode:1
+sw_item:АРК1, режим КОМП1|ВКЛЮЧЕНО:sim/custom/xap/An24_ark/ark1_mode:1
+sw_item:АРК2, режим КОМП2|ВКЛЮЧЕНО:sim/custom/xap/An24_ark/ark2_mode:4
+sw_item:VOR1, настроен|ВКЛЮЧЁН:sim/custom/xap/An24_gauges/curs_mp1_sw:1
+sw_item:VOR1, настороен|ВКЛЮЧЁН:sim/custom/xap/An24_gauges/curs_mp2_sw:1
+sw_itemvoid:СНИЖЕНИЕ
+sw_item:Табло "ПРИСТЕГНУТЬ РЕМНИ,|ВКЛ:parshukovedition/nosmokingswitch:1
+sw_itemvoid:НЕ КУРИТЬ"
+sw_item:Режим двигателей|25 УПРТ:(sim/flightmodel/engine/ENGN_thro[0]:0.23|0.27)&&(sim/flightmodel/engine/ENGN_thro[1]:0.23|0.27)
+#sw_item:Сирена|ВЫКЛ
+sw_itemvoid:Скорость снижения|5-6 м/с
+sw_item:Приборная скорость, не выше|450 км/ч:sim/flightmodel/position/indicated_airspeed:<242
+sw_continue
+
+sw_checklist:СНИЖЕНИЕ
+sw_rcolsize:20
+sw_item:ВЫСОТА 3000 м|ДОСТИГНУТА:sim/cockpit2/gauges/indicators/radio_altimeter_height_ft_pilot:9800|9900
+sw_item:Режим фар, ВЫПУЩЕНО|БОЛЬШОЙ СВЕТ:(sim/custom/xap/An24_misc/lan_light_open_sw:1)&&(sim/custom/xap/An24_misc/lan_light_sw:1)
+sw_itemvoid: 
+sw_itemvoid:ВЫСОТА ПЕРЕХОДА
+sw_itemvoid:Высотомеры, давление аэродома|УСТАНОВЛЕНО
+sw_itemvoid: 
+sw_itemvoid:ВЫСОТА КРУГА
+sw_item:Приборная скорость|ДО 350 км/ч:sim/flightmodel/position/indicated_airspeed:<189
+sw_item:Шасси, ВЫПУСК, |ВЫПОЛНЕНО:sim/custom/xap/An24_set/real_gears:1
+sw_item:Шасси, КРАН НЕЙТР.|ВЫПОЛНЕНО:sim/custom/xap/An24_hydro/gear_rotary:0
+sw_item:Закрылки, ПОЭТАПНО|ДО 30 ГРАД.:sim/cockpit2/controls/flap_ratio:>0.740
+sw_item:Приборная скорость|ДО 230 км/ч:sim/flightmodel/position/indicated_airspeed:<124
+
+sw_checklist:ЗАХОД, ПОСАДКА
+sw_rcolsize:20
+sw_itemvoid:НА ГЛИССАДЕ
+sw_itemvoid:
+sw_item:Приборная скорость|ДО 230 км/ч:sim/flightmodel/position/indicated_airspeed:<124
+sw_itemvoid:Скорость снижения|2-3 м/с
+sw_item:Посадочная скорость|190 км/ч:sim/flightmodel/position/indicated_airspeed:<102
+sw_itemvoid: 
+sw_itemvoid:ПОСЛЕ КАСАНИЯ
+sw_item:Режим двигателей|НОЛЬ:(sim/custom/xap/An24_gauges/torque_left:<1)&&(sim/custom/xap/An24_gauges/torque_right:<1)
+sw_item:Винты|СНЯТЫ С УПОРА:sim/custom/xap/An24_prop/pitch_stop_set:0
+sw_item:Торможение, скорость|НИЖЕ 100 км/ч:sim/flightmodel/position/indicated_airspeed:<53
+sw_item:Управление передней стойкой|РУЛЕНИЕ:sim/custom/xap/An24_gauges/noseweel:-1
+sw_continue
+
+sw_checklist:РУЛЕНИЕ НА СТОЯНКУ
+sw_rcolsize:20
+sw_item:Режим фар|МАЛЫЙ СВЕТ:sim/custom/xap/An24_misc/lan_light_sw:-1
+sw_item:Погодный радар, режим|ГОТОВ:sim/custom/xap/An24_rls/rls_mode_lamp:0
+sw_item:Погодный радар, питание|ОТКЛЮЧЕНО:sim/custom/xap/An24_rls/rls_power_sw:0
+sw_item:Закрылки|УБРАНЫ:sim/cockpit2/controls/flap_ratio:0
+sw_item:Ответчик|РЕЖИМ "А":sim/custom/xap/An24_sq/sq_mode:0
+sw_item:Питание, АРК1|ВЫКЛЮЧЕНО:sim/custom/xap/An24_ark/ark1_mode:0
+sw_item:Питание, АРК2|ВЫКЛЮЧЕНО:sim/custom/xap/An24_ark/ark2_mode:0
+sw_item:Питание, VOR1|ВЫКЛЮЧЕН:sim/custom/xap/An24_gauges/curs_mp1_sw:0
+sw_item:Питание, VOR1|ВЫКЛЮЧЕН:sim/custom/xap/An24_gauges/curs_mp2_sw:0
+sw_continue
+
+sw_checklist:НА СТОЯНКЕ
+sw_rcolsize:20
+sw_itemvoid: Время записать, часы АЧС-1|ОСТАНОВИТЬ
+sw_item:Режим фар|ВЫКЛ, УБРАТЬ:(sim/custom/xap/An24_misc/lan_light_open_sw:0)&&(sim/custom/xap/An24_misc/lan_light_sw:0)
+sw_item:Обогрев ПВД-7 лев.|ВКЛ:sim/custom/xap/An24_ice/pitot1_sw:0
+sw_item:Обогрев ППД-1|ВКЛ:sim/custom/xap/An24_ice/aoa_ht_sw:0
+sw_item:Обогрев ПВД-7 прав.|ВКЛ:sim/custom/xap/An24_ice/pitot2_sw:0
+sw_item:Генераторы|ВЫКЛ:(sim/custom/xap/An24_power/stg1_on_bus:0)&&(sim/custom/xap/An24_power/go1_on_bus:0)&&(sim/custom/xap/An24_power/stg2_on_bus:0)&&(sim/custom/xap/An24_power/go2_on_bus:0)
+sw_item:Стопкраны|ВКЛ:(sim/custom/xap/An24_fuel/fuel_stop1:0)&&(sim/custom/xap/An24_fuel/fuel_stop2:0)
+sw_item:Все потребители|ВЫКЛ:(sim/custom/xap/An24_gauges/bkk_sw:0)&&(sim/custom/xap/An24_gauges/AGB_left:0)&&(sim/custom/xap/An24_gauges/AGD_left:0)&&(sim/custom/xap/An24_gauges/rv_2_sw:0)&&(sim/custom/xap/An24_gauges/feet_meter_sw:0)&&(sim/custom/xap/An24_gauges/GIK_sw:0)&&(sim/custom/xap/An24_gauges/AGD_right:0)&&(sim/custom/xap/An24_gauges/GPK_sw:0)&&(sim/custom/xap/An24_gauges/ark_vor:0)&&(sim/custom/xap/An24_gauges/uvid_30_sw:0)
+sw_item:Форточки|ОТКРЫТЫ:(sim/cockpit2/switches/custom_slider_on[2]:1)&&(sim/cockpit2/switches/custom_slider_on[3]:1)
+sw_item:Топливные насосы|ВЫКЛ:(sim/custom/xap/An24_fuel/pump1_switch:1)&&(sim/custom/xap/An24_fuel/pump4_switch:1)
+sw_item:Дежурные баки|ЗАКРЫТЫ:(sim/custom/xap/An24_fuel/pump2_switch:0)&&(sim/custom/xap/An24_fuel/pump3_switch:0)
+sw_item:Пожарные краны|ЗАКРЫТЫ:(sim/custom/xap/An24_fuel/fire_valve1_sw:0)&&(sim/custom/xap/An24_fuel/fire_valve2_sw:0)
+sw_item:Стопкраны|ВЫКЛ:(sim/custom/xap/An24_fuel/fuel_stop1:1)&&(sim/custom/xap/An24_fuel/fuel_stop2:1)
+sw_item:МСРП, Контроль|ВКЛ:parshukovedition/msrplight:0
+sw_item:МСРП, ЛПМ|ВКЛ:parshukovedition/msrp_switch:0
+sw_item:Радио Com 2 131.800|НАСТРОЕНО:sim/cockpit/radios/com2_freq_hz:13180
+sw_item:Башмаки шасси, заземление|УСТАНОВЛЕНЫ:(sim/custom/xap/An24_covers/gear_blocks:0)&&(sim/custom/xap/An24_covers/grounding:0)
+sw_item:Грузовые люки, пассажирская дверь|ОТКРЫТЫ:(sim/cockpit2/switches/custom_slider_on[4]:1)&&(sim/cockpit2/switches/custom_slider_on[6]:1)&&(sim/cockpit2/switches/custom_slider_on[5]:1)
+sw_item:Лестница|УСТАНОВЛЕНА:sim/cockpit2/switches/custom_slider_on[7]:1
+sw_item:Режим питания|ВЫКЛ:sim/custom/xap/An24_power/power_mode:1
+sw_itemvoid: 
+sw_itemvoid:------------------
+sw_itemvoid:    УДАЧИ!
+sw_itemvoid:------------------

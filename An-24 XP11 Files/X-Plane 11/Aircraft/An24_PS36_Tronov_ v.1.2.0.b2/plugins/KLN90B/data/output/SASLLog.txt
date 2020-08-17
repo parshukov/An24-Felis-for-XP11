@@ -1,0 +1,19 @@
+[KLN90B INFO]: Initializing...
+[KLN90B INFO]: Path to module: /home/oleg_tr/X-Plane11/Aircraft/An24_PS_Tronov_ v.1.2.0.b2/plugins/KLN90B/data/modules/main.lua
+[KLN90B INFO]: Loading module...
+[KLN90B INFO]: [LUA]: loading	module
+[KLN90B INFO]: [LUA]: loading	KLN90_panel
+[KLN90B INFO]: [LUA]: loading	rectangle2
+[KLN90B INFO]: [LUA]: loading	texture
+[KLN90B INFO]: [LUA]: loading	KLN90_2D
+[KLN90B INFO]: [LUA]: loading	textureLit
+[KLN90B INFO]: [LUA]: loading	textureLit2
+[KLN90B INFO]: [LUA]: loading	clickable
+[KLN90B INFO]: [LUA]: loading	textureRotate
+[KLN90B INFO]: [LUA]: loading	rectangle
+[KLN90B INFO]: [LUA]: loading	MD41_2D
+[KLN90B INFO]: [LUA]: loading	KLNpopup_panel
+[KLN90B INFO]: Loading cursors...
+[KLN90B INFO]: Module loaded
+[KLN90B INFO]: Disabling...
+[KLN90B INFO]: SASL plugin stopped...
